@@ -1,0 +1,32 @@
+---
+import Layout from "@layouts/Layout.astro";
+//import SimpleMapWrapper from "@components/map/simplemap.jsx"
+import Leaflet from '@components/map/mleaflet.jsx';
+//import '@style/global.css';
+
+const markers = [
+    { lat: 51.505, lng: -0.09 },
+    { lat: 51.51, lng: -0.1 },
+    { lat: 51.515, lng: -0.095 },
+  ];
+
+---
+
+<Layout title="">
+<section class='flex flex-col gap-10 md:gap-28 lg:gap-8'>
+    <section><p>hallo</p></section>
+		<div className='md:rounded-2xl md:overflow-hidden lg:w-1/3'>
+        
+				<h1>Map Component</h1>
+      <Leaflet client:only="react" markers={markers} />
+				<!-- <SimpleMapWrapper client:only="react"/> -->
+      </div>
+     
+    
+  </section>
+
+
+
+
+
+</Layout>
