@@ -15,12 +15,13 @@ const markers = [
   ];
 ---
 
-<main   class="place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block">
+<main   class="place-items-center  pt-16 pb-8 md:pt-12 md:pb-24">
+  
+  <div class="card rounded-lg shadow-lg border  border border-lg  p-4">     
+		<!--<div><MapWrapper client:only="react"/></div>  -->		
+		<div class=" flex items-center justify-center h-16"> 
+			<CurrentTime  client:only="react" />
 	</div>
-  <div>     
-			<!--<div><MapWrapper client:only="react"/></div>  -->		
-			<CurrentTime client:only="react" />
-			  <Leaflet client:only="react" markers={markers} />    
+						  <Leaflet client:only="react" markers={markers} />    
   </div>
 </main>
