@@ -3,53 +3,24 @@ import { Picture } from "@astrojs/image/components";
 import heroImage from "assets/hero.png";
 import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon";
-import MapWrapper from "@components/map/mapwrapper"
-import SimpleMapWrapper from "@components/map/simplemap.jsx"
+//import MapWrapper from "@components/map/mapwrapper"
+//import SimpleMapWrapper from "@components/map/simplemap.jsx"
+import Leaflet from '@components/map/mleaflet.jsx';
 import CurrentTime from '@components/time.jsx'
+
+const markers = [
+    { lat: 51.505, lng: -0.09 },
+    { lat: 51.51, lng: -0.1 },
+    { lat: 51.515, lng: -0.095 },
+  ];
 ---
 
-<main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+<main   class="place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
   <div class="py-6 md:order-1 hidden md:block">
 	</div>
-
-		<CurrentTime client:only="react" />
-     <Picture
-      src={heroImage}
-      alt="Astronaut in the air"
-      widths={[200, 400, 600]}
-      aspectRatio="4:3"
-      sizes="(max-width: 800px) 100vw, 620px"
-      loading="eager"
-      format="avif"
-    /> 
-	   
-  
-  <div>
-    <div><SimpleMapWrapper client:only="react"/></div>
-			<!-- <div><MapWrapper client:only="react"/></div> -->
-			
-    <div class="mt-6 flex flex-col sm:flex-row gap-3">
-      <Link
-        href="#"
-        href="https://web3templates.com/templates/astroship-starter-website-template-for-astro"
-        target="_blank"
-        class="flex gap-1 items-center justify-center"
-        rel="noopener">
-        <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" />
-
-        Download for Free
-      </Link>
-      <Link
-        size="lg"
-        style="outline"
-        rel="noopener"
-        href="https://github.com/surjithctly/astroship"
-        class="flex gap-1 items-center justify-center"
-        target="_blank">
-        <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
-        GitHub Repo
-      </Link>
-    </div>
+  <div>     
+			<!--<div><MapWrapper client:only="react"/></div>  -->		
+			<CurrentTime client:only="react" />
+			  <Leaflet client:only="react" markers={markers} />    
   </div>
 </main>
